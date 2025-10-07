@@ -32,5 +32,4 @@ export const getRoomQuestions: FastifyPluginCallbackZod = (app) => {
     }
   );
 };
-
 // ( url, { validation schema }, handler () => {} )
