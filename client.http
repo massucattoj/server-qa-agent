@@ -52,7 +52,7 @@ Content-Type: application/json
 Authorization: Bearer {{loginUser.response.body.$.token}}
 
 {
-  "name": "Sala de teste",
+  "name": "Sala de teste w/ Login",
   "description": "Essa é uma sala de teste"
 }
 
@@ -65,6 +65,7 @@ Authorization: Bearer {{loginUser.response.body.$.token}}
 # Get room questions
 # @name getRoomQuestions
 GET {{baseUrl}}/rooms/{{roomId}}/questions
+Authorization: Bearer {{loginUser.response.body.$.token}}
 
 ###
 
@@ -75,5 +76,5 @@ Content-Type: application/json
 Authorization: Bearer {{loginUser.response.body.$.token}}
 
 {
-  "question": "Is this a test?"
+  "question": "Is this a test with login?"
 }

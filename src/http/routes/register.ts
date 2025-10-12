@@ -1,5 +1,5 @@
 import type { FastifyPluginCallbackZod } from "fastify-type-provider-zod";
-import { z } from "zod/v4";
+import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { db } from "../../db/connection.ts";
 import { schema } from "../../db/schema/index.ts";
