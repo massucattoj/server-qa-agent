@@ -7,16 +7,49 @@ GET {{baseUrl}}/health
 
 ###
 
-# Get rooms
-# @name getRooms
+# Register user
+# @name registerUser
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+###
+
+# Login user
+# @name loginUser
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+###
+
+# Get rooms WITHOUT token (should fail)
+# @name getRoomsWithoutToken
 GET {{baseUrl}}/rooms
 
 ###
 
-# Create room
+# Get rooms WITH token (should work)
+# @name getRoomsWithToken
+GET {{baseUrl}}/rooms
+Authorization: Bearer {{loginUser.response.body.$.token}}
+
+###
+
+# Create room WITH token
 # @name createRoom
 POST {{baseUrl}}/rooms
 Content-Type: application/json
+Authorization: Bearer {{loginUser.response.body.$.token}}
 
 {
   "name": "Sala de teste",
@@ -39,7 +72,8 @@ GET {{baseUrl}}/rooms/{{roomId}}/questions
 # @name createQuestion
 POST {{baseUrl}}/rooms/{{roomId}}/questions
 Content-Type: application/json
+Authorization: Bearer {{loginUser.response.body.$.token}}
 
 {
-  "question": "What is React?"
+  "question": "Is this a test?"
 }
