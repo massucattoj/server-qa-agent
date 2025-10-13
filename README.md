@@ -35,8 +35,8 @@ A Node.js API server that enables AI-powered question answering based on audio c
 1. Clone the repository:
 
 ```bash
-git clone [TODO: repository-url]
-cd server
+git clone https://github.com/massucattoj/server-qa-agent
+cd server-qa-agent
 ```
 
 2. Install dependencies:
@@ -57,6 +57,7 @@ Edit `.env` with your configuration:
 PORT=3333
 DATABASE_URL=postgresql://docker:docker@localhost:5432/agents
 GEMINI_API_KEY=your_gemini_api_key_here
+JWT_SECRET=your_super_secret_jwt_key_that_is_at_least_32_characters_long
 ```
 
 4. Start the database:
